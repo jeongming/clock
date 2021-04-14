@@ -7,8 +7,9 @@
     <title>Clock</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: 0; }
-        .time-wrap { display: flex; font-size: 50px; font-weight: 700; }
-        .date-wrap { display: flex; font-size: 20px; text-align: center; }
+        .clock_wrap { width: 200px; height: 100px; background-color: seagreen; padding: 30px; border-radius: 25px; border: 1px solid rgb(255, 255, 255);}
+        .time-wrap { display: flex; font-size: 50px; font-weight: 700; color: seashell; }
+        .date-wrap { display: flex; justify-content: center; font-size: 20px;  color: seashell; }
     </style>
 </head>
 <body>
@@ -48,7 +49,11 @@
 
             document.getElementById('hour').innerHTML = hour;
 
-            document.getElementById('minute').innerHTML = minute;
+            if (minute < 10) {
+                document.getElementById('minute').innerHTML = "0" + minute;
+            } else {
+                document.getElementById('minute').innerHTML = minute;
+            }
 
             if (second < 10) {
                 document.getElementById('second').innerHTML = "0" + second;
