@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: 0; }
+        .time-wrap { display: flex; font-size: 50px; font-weight: 700; }
+        .date-wrap { display: flex; font-size: 20px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="clock_wrap">
+        <div class="time-wrap">
+            <p id="hour"></p><span>:</span>
+            <p id="minute"></p><span>:</span>
+            <p id="second">
+        </div>
+        <div class="date-wrap">
+            <p id="year"></p><span>/</span>
+            <p id="month"></p><span>/</span>
+            <p id="date"></p><span>/</span>
+            <p id="day"></p>
+        </div>
+    </div>
+    
+    
+
+    <script>
+
+        function clock() {
+            var today = new Date(); // 날짜 오브젝트를 생성
+
+            var hour = today.getHours();
+            var minute = today.getMinutes();
+            var second = today.getSeconds();
+
+            var year = today.getFullYear();
+            var month = today.getMonth();
+            var date = today.getDate();
+            var day = today.getDay();
+
+            var dayName = ['일', '월', '화', '수', '목', '금', '토'];
+            var dayNameEng = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fir', 'Sat'];
+
+
+            document.getElementById('hour').innerHTML = hour;
+
+            document.getElementById('minute').innerHTML = minute;
+
+            if (second < 10) {
+                document.getElementById('second').innerHTML = "0" + second;
+            } else {
+                document.getElementById('second').innerHTML = second;
+            }
+
+            document.getElementById('year').innerHTML = year;
+            document.getElementById('month').innerHTML = month;
+            document.getElementById('date').innerHTML = date;
+            document.getElementById('day').innerHTML = dayNameEng[day];
+        }
+
+        var clockReload = setInterval( clock , 1000);
+    
+        
+    </script>
+</body>
+</html>
